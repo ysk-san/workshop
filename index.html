@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>こなす毎日を、楽しむ毎日に。｜ライフ・クラフティングワークショップ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+  :root {
+    --cream: #f7f3ea;
+    --cream-deep: #efe8d8;
+    --ink: #3a352b;
+    --ink-soft: #6b6354;
+    --ink-faint: #9a9182;
+    --terracotta: #c47a52;
+    --terracotta-deep: #a8602f;
+    --moss: #7c8a5e;
+    --line: rgba(58,53,43,0.14);
+    --white: #fffdf8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Zen Maru Gothic', 'Hiragino Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .serif {
+    font-family: 'Noto Serif JP', serif;
+  }
+
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--cream);
+    position: relative;
+  }
+
+  /* ===== Hero ===== */
+  .hero-img-wrap {
+    width: 100%;
+    aspect-ratio: 1408/768;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-lead {
+    padding: 44px 28px 8px;
+    text-align: center;
+  }
+  .hero-lead p.main {
+    font-size: 17px;
+    line-height: 1.95;
+    letter-spacing: 0.02em;
+    margin-bottom: 26px;
+  }
+  .hero-lead p.sub {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 2;
+    margin-bottom: 4px;
+  }
+  .hero-lead .divider-leaf {
+    margin: 28px auto;
+    width: 28px;
+    height: 28px;
+    opacity: 0.55;
+  }
+
+  .info-card {
+    margin: 8px 24px 24px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 6px 20px;
+  }
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--terracotta-deep);
+  }
+  .info-row .text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .info-row .text .note {
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .cta-btn {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 4px 24px 36px;
+    height: 56px;
+    background: var(--terracotta-deep);
+    color: var(--white);
+    border: none;
+    border-radius: 28px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    text-align: center;
+    line-height: 56px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 12px -4px rgba(168,96,47,0.4);
+  }
+  .cta-btn.secondary {
+    background: var(--white);
+    color: var(--terracotta-deep);
+    border: 1.5px solid var(--terracotta-deep);
+    box-shadow: none;
+  }
+
+  /* ===== Section break image ===== */
+  .section-break-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .section-break-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ===== Section general ===== */
+  .section {
+    padding: 52px 26px 8px;
+  }
+  .section-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 0 26px;
+  }
+  .eyebrow {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--terracotta-deep);
+    margin-bottom: 10px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+  h2.section-title {
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== Feelings cards ===== */
+  .feel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .feel-item {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .feel-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--moss);
+    flex-shrink: 0;
+  }
+
+  .feel-note {
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .feel-disclaimer {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-top: 4px;
+  }
+  .feel-disclaimer p {
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  /* ===== Work content ===== */
+  .work-p {
+    font-size: 14.5px;
+    line-height: 2;
+    margin-bottom: 18px;
+  }
+  .work-highlight {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 20px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .work-highlight p {
+    font-size: 14.5px;
+    line-height: 1.9;
+  }
+  .work-quote {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--ink-soft);
+    font-family: 'Noto Serif JP', serif;
+    margin-top: 8px;
+  }
+
+  /* ===== Concept section ===== */
+  .concept-p {
+    font-size: 14.5px;
+    line-height: 2;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  /* ===== Facilitator ===== */
+  .profile-photo-wrap {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 18px;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .profile-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .profile-name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .profile-bio {
+    font-size: 13px;
+    line-height: 1.95;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  /* ===== Overview table ===== */
+  .overview-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 4px 18px;
+  }
+  .overview-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .overview-row:last-child { border-bottom: none; }
+  .overview-label {
+    font-size: 13px;
+    color: var(--terracotta-deep);
+    min-width: 44px;
+    flex-shrink: 0;
+    padding-top: 1px;
+    font-weight: 500;
+  }
+  .overview-value {
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+    flex: 1;
+  }
+  .overview-value .note {
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: block;
+    margin-top: 3px;
+    line-height: 1.6;
+  }
+
+  /* ===== Final message ===== */
+  .final-message {
+    background: var(--cream-deep);
+    margin: 52px 0 0;
+    padding: 52px 26px 60px;
+  }
+  .final-message .leaf-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 20px;
+    display: block;
+    color: var(--moss);
+    opacity: 0.7;
+  }
+  .final-message p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14.5px;
+    line-height: 2.05;
+    margin-bottom: 16px;
+  }
+  .final-message .sign {
+    text-align: right;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 24px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+
+  /* ===== Apply section ===== */
+  .apply-section {
+    padding: 44px 26px 60px;
+    text-align: center;
+  }
+  .apply-note {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px 40px;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 360px) {
+    .hero-lead { padding: 36px 20px 8px; }
+    .section { padding: 44px 20px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== Hero ===== -->
+  <div class="hero-img-wrap">
+    <img src="hero.png" alt="窓辺の自然光が入るテーブルに、コラージュノートとハサミ、コーヒーが置かれた様子">
+  </div>
+
+  <div class="hero-lead">
+    <p class="main">毎日、いろんなことに追われて、<br>気づいたら自分のことを<br>後回しにしていませんか。</p>
+    <p class="sub">晴れの日には晴れの日の、<br>雨の日には雨の日の過ごし方があるように。</p>
+    <p class="sub">同じ24時間の中に、<br>まだ見つけていない「自分」が<br>隠れているかもしれません。</p>
+
+    <svg class="divider-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M12 2C12 2 5 7 5 13a7 7 0 0014 0c0-6-7-11-7-11z"/>
+      <path d="M12 9v11"/>
+    </svg>
+  </div>
+
+  <div class="info-card">
+    <div class="info-row">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+      <div class="text">2026年7月11日（土）13:30〜15:30<span class="note">※13:25には集合をお願いします</span></div>
+    </div>
+    <div class="info-row">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div class="text">鹿児島市加治屋町周辺のギャラリー</div>
+    </div>
+    <div class="info-row">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15 14.5c2.5.3 4.5 2 4.5 4.5"/></svg>
+      <div class="text">定員5名（先着順）</div>
+    </div>
+  </div>
+
+  <a href="#apply" class="cta-btn">詳しくみる</a>
+
+  <!-- ===== こんな感覚 ===== -->
+  <div class="section">
+    <p class="eyebrow">こんな感覚、ありませんか</p>
+    <h2 class="section-title">毎日に追われていませんか</h2>
+
+    <div class="feel-list">
+      <div class="feel-item"><span class="dot"></span>やることに追われて、1日があっという間に終わる</div>
+      <div class="feel-item"><span class="dot"></span>頑張っているはずなのに、なんだか手応えがない</div>
+      <div class="feel-item"><span class="dot"></span>「自分の時間」が、いつも一番後ろに回ってしまう</div>
+      <div class="feel-item"><span class="dot"></span>このままでいいのかなと、ふとした時に考えてしまう</div>
+      <div class="feel-item"><span class="dot"></span>最近、ワクワクしてない</div>
+      <div class="feel-item"><span class="dot"></span>毎日をこなしているだけで、味わえていない気がする</div>
+    </div>
+
+    <p class="feel-note">一つでも当てはまったら、<br>このワークショップはきっと意味のある2時間になります。</p>
+
+    <div class="feel-disclaimer">
+      <p>お仕事をしている方、子育て中の方、どなたでもどうぞ。<br>立場や状況に関わらず、この感覚がある方への時間です。</p>
+    </div>
+  </div>
+
+  <div class="section-divider" style="margin-top:48px;"></div>
+
+  <!-- ===== ワークの内容 ===== -->
+  <div class="section">
+    <p class="eyebrow">このワークショップで起こること</p>
+    <h2 class="section-title">手を動かしながら、気づいていく</h2>
+
+    <p class="work-p">あなたの平日の24時間を、ぐるっと書き出してみます。仕事の時間も、家事の時間も、自分のための時間も、全部まるごと一枚のタイムラインに。</p>
+
+    <p class="work-p">そこから、ピンときた写真を雑誌から切って、貼って、選んで。頭で考えるだけじゃない、手と感覚を使ったクラフトの時間です。</p>
+
+    <p class="work-p">あなたの「いつもの1日」を、わたしと一緒に、ちょっと違う角度から眺めてみます。気づいたら、いつもの毎日が、少しだけ違う顔をして見えているかもしれません。</p>
+
+    <div class="work-highlight">
+      <p>最後には、明日からの暮らしに、<br>小さく、ひとさじだけ加えてみたくなる<br>「何か」を持って帰ってもらいます。</p>
+    </div>
+
+    <p class="work-p">大きな決断や、行動宣言は必要ありません。ただ、今ある毎日との付き合い方が、少し変わる。そんな2時間です。</p>
+
+    <p class="work-quote">頭だけで考えるのではなく、直感や心にグッとくる感覚を大事にすることが、わたしはとても大事だと感じています。だから、ぜひあなたにもその感覚を味わってほしいと思っています。</p>
+  </div>
+
+  <div class="section-break-img">
+    <img src="section_break.png" alt="ノートに手書きでメモを取る手元と、コーヒー、メガネが置かれた机の様子">
+  </div>
+
+  <!-- ===== こんな時間にしたい ===== -->
+  <div class="section">
+    <p class="eyebrow">こんな時間にしたいと思っています</p>
+    <h2 class="section-title">今ある暮らしを、見つめ直す</h2>
+
+    <p class="concept-p">転職活動でも、自己分析講座でもありません。</p>
+    <p class="concept-p">「本当の自分」を探しに行くのでも、<br>「理想の人生」を新しく描くのでもなく——</p>
+    <p class="concept-p">今すでにある、あなたの暮らしの中に、<br>まだ気づいていない意味や、小さな喜びを<br>見つけにいく時間です。</p>
+    <p class="concept-p">仕事も、家事も、子育ても、自分の時間も。<br>全部をまるごと「あなたの人生」として、<br>わたしと一緒に、あらためて眺めてみませんか。</p>
+  </div>
+
+  <div class="section-divider" style="margin-top:48px;"></div>
+
+  <!-- ===== ファシリテーター ===== -->
+  <div class="section">
+    <p class="eyebrow">ファシリテーター</p>
+    <div class="profile-photo-wrap">
+      <img src="profile.png" alt="臼井泰子さんのプロフィール写真">
+    </div>
+    <p class="profile-name">臼井泰子（うっしー）</p>
+    <p class="profile-bio">国家資格キャリアコンサルタント。大手人材系企業で300社以上の企業の採用サポートに従事した経験を生かし、個人のライフキャリアに寄り添ったカウンセリングを実施。現在は、「もっと自分らしくしなやかにありたい」女性へのコンサルティングをメインに活動中。&ldquo;答えはその人の中にある&rdquo;がモットー。</p>
+  </div>
+
+  <div class="section-divider" style="margin-top:48px;"></div>
+
+  <!-- ===== 開催概要 ===== -->
+  <div class="section" id="apply">
+    <p class="eyebrow">開催概要</p>
+    <h2 class="section-title">こなす毎日を、楽しむ毎日に。</h2>
+
+    <div class="overview-card">
+      <div class="overview-row">
+        <span class="overview-label">日時</span>
+        <span class="overview-value">2026年7月11日（土）<br>13:30〜15:30<span class="note">※13:25には集合をお願いします</span></span>
+      </div>
+      <div class="overview-row">
+        <span class="overview-label">場所</span>
+        <span class="overview-value">鹿児島市加治屋町周辺のギャラリー<span class="note">対面のみ／申込み後に詳細をお伝えします</span></span>
+      </div>
+      <div class="overview-row">
+        <span class="overview-label">参加費</span>
+        <span class="overview-value">1,000円<span class="note">材料費込み／当日お支払い（現金・PayPay）</span></span>
+      </div>
+      <div class="overview-row">
+        <span class="overview-label">定員</span>
+        <span class="overview-value">5名様（先着順）</span>
+      </div>
+      <div class="overview-row">
+        <span class="overview-label">持ち物</span>
+        <span class="overview-value">ハサミ、筆記用具</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 最後に ===== -->
+  <div class="final-message">
+    <svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M12 2C12 2 5 7 5 13a7 7 0 0014 0c0-6-7-11-7-11z"/>
+      <path d="M12 9v11"/>
+    </svg>
+    <p>キャリアコンサルタントとして活動する中で、わたしは「ワーク＆ライフを丸っと全部楽しむ」ことを広げていきたいんだ！と感じるようになりました。</p>
+    <p>今回のワークショップは、そんなわたしの思いを染み込ませた初めての試みになります！</p>
+    <p>ぜひ軽やかな気持ちで参加してくださいね。お会いできるのを楽しみにしています。</p>
+    <p class="sign">臼井泰子</p>
+  </div>
+
+  <!-- ===== 申込み ===== -->
+  <div class="apply-section">
+    <p class="apply-note">下記フォームよりお申込みください。<br>定員になり次第、締め切らせていただきます。</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYBf-j7vQnPslpMm5jSz9O9DH1kkX5aFU4EoUzaQcN_2AKLw/viewform?usp=header" class="cta-btn" style="margin:0;" target="_blank" rel="noopener">申し込みフォームへ</a>
+  </div>
+
+  <footer>
+    こなす毎日を、楽しむ毎日に。｜ライフ・クラフティングワークショップ
+  </footer>
+
+</div>
+</body>
+</html>
